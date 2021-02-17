@@ -1,0 +1,12 @@
+Python-Toolbox
+
+This repository contains python scripts for:
+- Finding features of a waveform
+- Applying functions to a waveform
+- Parsing data from a file
+- Viewing data in plots
+
+These scripts can be used for:
+- ECG signal analysis
+- PPG signal analysis
+- CBT signal analysis
