@@ -38,7 +38,7 @@ def parse_ppg(file_path):
                 if 'GRE-AMB_Value' in data:
                     ppg_ac.append(float(row[data.index('GRE-AMB_Value')]))
 
-    data_dict = dict(dc_ts=ppg_dc_ts, dc_sig=ppg_dc, ac_ts=ppg_ac_ts, ac_sig=ppg_ac)
+    data_dict = dict(dc_ts=ppg_dc_ts, dc_ppg=ppg_dc, ac_ts=ppg_ac_ts, ac_ppg=ppg_ac)
     
     
     return data_dict

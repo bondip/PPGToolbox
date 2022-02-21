@@ -32,7 +32,7 @@ def parse_cbt(file_path):
                 if 'cbt [mC]' in data:
                     cbt.append(float(row[data.index('cbt [mC]')]))
 
-    data_dict = dict(ts=cbt_ts, sig=cbt)
+    data_dict = dict(ts=cbt_ts, cbt=cbt)
     
     
     return data_dict

@@ -23,11 +23,11 @@ def parse_ecg(file_path):
             if len(row) > 1:
                 data = [recording[i] for i in range(len(row)) if row[i] != '']
                 row = [x for x in row if x != '']
-                if 'Time [ms]' in data:
-                    ecg_ts.append(float(row[data.index('Time [ms]')]))
+                if 'Time [s]' in data:
+                    ecg_ts.append(float(row[data.index('Time [s]')]))
                 if 'Lead 1 ECG [uV]' in data:
                     ecg.append(float(row[data.index('Lead 1 ECG [uV]')]))
 
-    data_dict = dict(ts=ecg_ts, sig=ecg)
+    data_dict = dict(ts=ecg_ts, ecg=ecg)
     
     return data_dict
