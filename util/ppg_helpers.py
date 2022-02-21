@@ -6,7 +6,7 @@ Created on Mon Feb 21 10:41:27 2022
 """
 
 import csv
-
+import numpy as np
 
 def parse_ppg(file_path):
     
@@ -42,3 +42,51 @@ def parse_ppg(file_path):
     
     
     return data_dict
+
+def aacm_loop_corrector_v2(sig, step_threshold):
+    
+    corrected_sig = list(np.zeros(len(sig)))
+    corrected_sig[0] = sig[0]
+    stepper=0
+    prev_step=0
+    iir=0
+    
+    # plt.figure()
+    # plt.plot(sig)
+    
+    prev_steps=[]
+    
+    for i in range(1, len(sig)):
+        if i<=5:
+            iir+=1
+        alpha = 1/iir
+        step = sig[i] - sig[i - 1]
+        if abs(step) > step_threshold:
+            prev_steps.append(prev_step)
+            if step > 0:
+                stepper += step - prev_step
+            if step < 0:
+                stepper += step - prev_step
+        else:
+            prev_step = (1 - alpha) * prev_step + alpha * step
+            prev_steps.append(prev_step)
+        corrected_sig[i] += sig[i] - stepper
+        
+    # plt.figure()
+    # plt.plot(avg_steps)
+    # plt.plot(prev_steps)
+    # plt.show()
+    
+    # plt.plot(corrected_sig)
+    # plt.plot(prev_steps)
+    # plt.show()
+    
+
+    return corrected_sig
+
+
+
+
+
+
+

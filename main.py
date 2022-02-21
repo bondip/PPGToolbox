@@ -54,7 +54,6 @@ ppg_data['decimated_ac_ts'], ppg_data['decimated_ac_ppg'] = util.helpers.decimat
 ppg_data['decimated_dc_ts'], ppg_data['decimated_dc_ppg'] = util.helpers.decimator(ppg_data['dc_ts'], ppg_data['dc_ppg'], data_parameters['decimation_factor'])
 cbt_data['decimated_ts'], cbt_data['decimated_cbt'] = util.helpers.decimator(cbt_data['ts'], cbt_data['cbt'], data_parameters['decimation_factor'])
 
-
 #########-------            PPG AACM Loop Corrector            -------#########
 """
 PPG sensing IC's commonly use a digitally measured DC cancellation loop that
