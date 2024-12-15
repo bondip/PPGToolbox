@@ -63,6 +63,7 @@ to use a higher gain on the PPG AC signal but remain in the ADC range
 ppg_data['loop_corrected_ac_ppg'] = util.ppg_helpers.aacm_loop_corrector_v2(ppg_data['ac_ppg'], data_parameters['ppg_step_threshold'])
 
 
+
 #########-------                    Save Data                  -------#########
 with open(path + "\data\converted_ecg_data_pickle.txt", "wb") as fp:
     pickle.dump(ecg_data, fp)
